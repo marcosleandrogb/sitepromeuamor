@@ -1,0 +1,140 @@
+ <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parabéns!</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body{
+       
+     margin: 0;  /* remove margens padrão */
+     height: 100vh; /* garante altura total da tela */
+     background-image: url('Imagem do WhatsApp de 2025-06-09 à(s) 18.55.53_e70e29a9.jpg');
+     background-size: cover;         /* cobre toda a área */
+     background-repeat: no-repeat;   /* não repete a imagem */
+     background-position: center;    /* centraliza a imagem */
+    }
+      header {
+        background-color: #e76262;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      border-radius: 30px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+     .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      gap: 20px;
+     
+  
+    }
+
+    .card {
+        padding: 1rem;
+      flex: 1 1 200px;
+      border-radius: 8px;
+     background-color: rgba(255, 29, 29, 0.5);
+       justify-items: center;
+      align-items: center;
+      
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 10px;
+      }
+    }
+    p{
+        font-size: 25px;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        color: rgb(54, 41, 54);
+    }
+    button{
+        border-radius: 6px;
+        padding: 10px;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        display: flex; align-items: center; justify-content: center;
+        width: 150px;
+        height: 30px;
+        margin-top: 10px;
+    }
+  </style>
+  <body>
+    <script>
+  function fireConfetti() {
+  var duration = 3 * 1000;
+  var end = Date.now() + duration;
+
+  (function frame() {
+    confetti({
+      particleCount: 5,
+      angle: 60,
+      spread: 55,
+      origin: { x: 0 }
+    });
+    confetti({
+      particleCount: 5,
+      angle: 120,
+      spread: 55,
+      origin: { x: 1 }
+    });
+
+    if (Date.now() < end) {
+      requestAnimationFrame(frame);
+    }
+  })();
+}
+
+window.onload = fireConfetti;
+
+</script>
+
+    <header>
+        <h1>Parabéns momozi, você acertou a primeira, porém foi só um teste, 
+            agora vem mais duas questões de verdade.</h1>
+          
+    </header>
+    <div class="container">
+    <div class="card">
+        <p>Qual nossa principal linguagem de amor?</p>
+        <button onclick="window.location.href='novapg.html'" 
+        style="   border-radius: 6px;
+        padding: 10px;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        color: rgb(0, 0, 0);
+        display: flex; align-items: center; justify-content: center;
+        width: 270px;
+        height: 30px;
+        margin-top: 10px;">Tempo de qualidade</button>
+        <br>
+        <button onclick="window.location.href='ultimapergunta.html'" 
+        style="   border-radius: 6px;
+        padding: 10px;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        color: rgb(0, 0, 0);
+        display: flex; align-items: center; justify-content: center;
+        width: 270px;
+        height: 30px;
+        margin-top: 10px;
+        ">Toque Fisico</button>
+        <br>
+        <button onclick="window.location.href='novapg.html'" 
+        style="   border-radius: 6px;
+        padding: 10px;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        color: rgb(0, 0, 0);
+        display: flex; align-items: center; justify-content: center;
+        display: flex; align-items: center; justify-content: center;
+        width: 270px;
+        height: 30px;
+        margin-top: 10px;
+        "> Palavras de afirmação </button>
+    </div>
+  </div>
+  </body>
