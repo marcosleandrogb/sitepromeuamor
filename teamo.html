@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para minha pretinha 💌</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #ffd1dc, #fff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      color: #b30059;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      z-index: 2;
+    }
+
+    .image-container {
+      max-width: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.02);
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 1.1em;
+      color: #800040;
+      z-index: 2;
+      align-items: center;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 1.6em;
+      }
+
+      .footer {
+        font-size: 1em;
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="heartCanvas"></canvas>
+
+  <h1>Te amo demais. 💖</h1>
+
+  <div class="image-container">
+    <img src="Sem Título-1.png" alt="Mensagem de amor em pergaminho">
+  </div>
+
+  <div class="footer">
+    Te amo pra sempre, minha pretinha esposa!
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4kyCWLSYMzMEbhsNJLJXnz?utm_source=generator" width="100%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <button onclick="window.location.href='presente.html'" 
+        style="   border-radius: 10px;
+        padding: 10px;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        color: rgb(0, 0, 0);
+        display: flex; align-items: center; justify-content: center;
+        width: 270px;
+        height: 55px;
+        margin-top: 10px; margin-left: 175px;">Receber meu presente</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('heartCanvas');
+    const ctx = canvas.getContext('2d');
+    let hearts = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function createHeart() {
+      return {
+        x: Math.random() * canvas.width,
+        y: -20,
+        size: Math.random() * 20 + 10,
+        speed: Math.random() * 2 + 1,
+        opacity: Math.random() * 0.5 + 0.5,
+        tilt: Math.random() * 2 - 1
+      };
+    }
+
+    function drawHeart(x, y, size, opacity) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.scale(size / 30, size / 30);
+      ctx.beginPath();
+      ctx.moveTo(0, -10);
+      ctx.bezierCurveTo(12, -18, 25, -5, 0, 20);
+      ctx.bezierCurveTo(-25, -5, -12, -18, 0, -10);
+      ctx.fillStyle = `rgba(255, 0, 128, ${opacity})`;
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function updateHearts() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      hearts.forEach((heart, i) => {
+        heart.y += heart.speed;
+        heart.x += heart.tilt;
+        drawHeart(heart.x, heart.y, heart.size, heart.opacity);
+
+        if (heart.y > canvas.height + 20) {
+          hearts[i] = createHeart();
+        }
+      });
+      requestAnimationFrame(updateHearts);
+    }
+
+    for (let i = 0; i < 50; i++) {
+      hearts.push(createHeart());
+    }
+
+    updateHearts();
+  </script>
+</body>
+</html>
+
